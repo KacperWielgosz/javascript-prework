@@ -32,7 +32,7 @@ let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.
 
 console.log('Gracz wpisał: ' + playerInput);
 
-let playerMove = getMoveName(randomNumber);
+let playerMove = getMoveName(playerInput);
 
 /* if(playerInput == '1'){
   playerMove = 'kamień';
@@ -47,42 +47,49 @@ else if(playerInput == '3'){
 
 printMessage('Twój ruch to: ' + playerMove);
 
-if(computerMove == 'kamień' && playerMove == 'papier'){
-  printMessage('Ty wygrywasz!');
+printMessage('Zagrałem ' + computerMove + ', a Ty ' + playerMove);
+
+function displayResult(argComputerMove, argPlayerMove){
+
+  if(argComputerMove == 'kamień' && argPlayerMove == 'papier'){
+    return('Ty wygrywasz!');
+  }
+
+  else if(argComputerMove == 'kamień' && argPlayerMove == 'kamień'){
+    return('Remis!');
+  }
+
+  else if(argComputerMove == 'kamień' && argPlayerMove == 'nożyce'){
+    return('Wygrywam!');
+  }
+
+  else if(argComputerMove == 'papier' && argPlayerMove == 'nożyce'){
+    return('Ty wygrywasz!');
+  }
+
+  else if(argComputerMove == 'papier' && argPlayerMove == 'papier'){
+    return('Remis!');
+  }
+
+  else if(argComputerMove == 'papier' && argPlayerMove == 'kamień'){
+    return('Wygrywam!');
+  }
+
+  else if(argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
+    return('Ty wygrywasz!');
+  }
+
+  else if(argComputerMove == 'nożyce' && argPlayerMove == 'nożyce'){
+    return('Remis!');
+  }
+
+  else if(argComputerMove == 'nożyce' && argPlayerMove == 'papier'){
+    return('Wygrywam!');
+  }
+
+  else if(argPlayerMove == 'nieznany ruch'){
+    return('Tak sie nie bawię!');
+  }
 }
 
-if(computerMove == 'kamień' && playerMove == 'kamień'){
-  printMessage('Remis!');
-}
-
-if(computerMove == 'kamień' && playerMove == 'nożyce'){
-  printMessage('Wygrywam!');
-}
-
-if(computerMove == 'papier' && playerMove == 'nożyce'){
-  printMessage('Ty wygrywasz!');
-}
-
-if(computerMove == 'papier' && playerMove == 'papier'){
-  printMessage('Remis!');
-}
-
-if(computerMove == 'papier' && playerMove == 'kamień'){
-  printMessage('Wygrywam!');
-}
-
-if(computerMove == 'nożyce' && playerMove == 'kamień'){
-  printMessage('Ty wygrywasz!');
-}
-
-if(computerMove == 'nożyce' && playerMove == 'nożyce'){
-  printMessage('Remis!');
-}
-
-if(computerMove == 'nożyce' && playerMove == 'papier'){
-  printMessage('Wygrywam!');
-}
-
-if(playerMove == 'nieznany ruch'){
-  printMessage('Tak sie nie bawię!');
-}
+  printMessage(displayResult)
