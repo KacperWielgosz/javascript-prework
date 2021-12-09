@@ -1,6 +1,5 @@
 {
-  const
-    getMoveName = function (argMoveId){
+  const getMoveName = function (argMoveId){
       if
       (argMoveId == 1){
       return 'kamień'
@@ -17,31 +16,32 @@
     console.log('Wylosowana liczba to: ' + randomNumber),
     displayResult = function (argComputerMove, argPlayerMove){
       if (
-      (argComputerMove === 'kamień' && argPlayerMove === 'papier')||
-      (argComputerMove === 'papier' && argPlayerMove === 'nożyce')||
-      (argComputerMove === 'nożyce' && argPlayerMove === 'kamień')
+        (argComputerMove === 'kamień' && argPlayerMove === 'papier')
+        || (argComputerMove === 'papier' && argPlayerMove === 'nożyce')
+        || (argComputerMove === 'nożyce' && argPlayerMove === 'kamień')
       ) {
-      return'Ty wygrywasz!';
+        return'Ty wygrywasz!';
       } else if (
-      (argComputerMove === 'kamień' && argPlayerMove === 'kamień')||
-      (argComputerMove === 'papier' && argPlayerMove === 'papier')||
-      (argComputerMove === 'nożyce' && argPlayerMove === 'nożyce')
+        (argComputerMove === 'kamień' && argPlayerMove === 'kamień')
+        || (argComputerMove === 'papier' && argPlayerMove === 'papier')
+        || (argComputerMove === 'nożyce' && argPlayerMove === 'nożyce')
       ) {
-      return('Remis!');
+        return('Remis!');
       } else if(
-      (argComputerMove === 'kamień' && argPlayerMove === 'nożyce')||
-      (argComputerMove === 'papier' && argPlayerMove === 'kamień')||
-      (argComputerMove === 'nożyce' && argPlayerMove === 'papier')
+        (argComputerMove === 'kamień' && argPlayerMove === 'nożyce')
+        || (argComputerMove === 'papier' && argPlayerMove === 'kamień')
+        || (argComputerMove === 'nożyce' && argPlayerMove === 'papier')
       ) {
-      return('Wygrywam!');
+        return('Wygrywam!');
       }
+
       return('Tak sie nie bawię!');
     }
 
   let computerMove = getMoveName(randomNumber),
       playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-      console.log('Gracz wpisał: ' + playerInput);
-      playerMove = getMoveName(playerInput);
+      console.log('Gracz wpisał: ' + playerInput),
+      playerMove = getMoveName(playerInput),
 
   printMessage('Twój ruch to: ' + playerMove);
 
